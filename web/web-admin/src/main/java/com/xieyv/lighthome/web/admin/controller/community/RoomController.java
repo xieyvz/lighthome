@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xieyv.lighthome.common.result.Result;
 import com.xieyv.lighthome.model.entity.RoomInfo;
 import com.xieyv.lighthome.model.enums.ReleaseStatus;
+import com.xieyv.lighthome.web.admin.custom.annocation.NotImplementedX;
 import com.xieyv.lighthome.web.admin.vo.room.RoomDetailVo;
 import com.xieyv.lighthome.web.admin.vo.room.RoomItemVo;
 import com.xieyv.lighthome.web.admin.vo.room.RoomQueryVo;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@NotImplementedX
 @Tag(name = "房间信息管理")
 @RestController
 @RequestMapping("/admin/room")

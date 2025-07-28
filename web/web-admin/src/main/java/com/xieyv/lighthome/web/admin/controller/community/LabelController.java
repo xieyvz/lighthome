@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//test acc
 @Tag(name = "标签管理")
 @RestController
 @RequestMapping("/admin/label")

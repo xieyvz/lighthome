@@ -4,11 +4,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xieyv.lighthome.common.result.Result;
 import com.xieyv.lighthome.model.entity.UserInfo;
 import com.xieyv.lighthome.model.enums.BaseStatus;
+import com.xieyv.lighthome.web.admin.custom.annocation.NotImplementedX;
 import com.xieyv.lighthome.web.admin.vo.user.UserInfoQueryVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
+@NotImplementedX
 @Tag(name = "用户信息管理")
 @RestController
 @RequestMapping("/admin/user")

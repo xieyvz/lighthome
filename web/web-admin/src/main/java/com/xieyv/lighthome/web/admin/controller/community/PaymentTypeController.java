@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//test acc
 @Tag(name = "支付方式管理")
 @RequestMapping("/admin/payment")
 @RestController
@@ -41,18 +40,3 @@ public class PaymentTypeController {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

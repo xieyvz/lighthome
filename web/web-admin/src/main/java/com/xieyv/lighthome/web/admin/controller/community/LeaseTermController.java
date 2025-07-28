@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//test acc
 @Tag(name = "租期管理")
 @RequestMapping("/admin/term")
 @RestController

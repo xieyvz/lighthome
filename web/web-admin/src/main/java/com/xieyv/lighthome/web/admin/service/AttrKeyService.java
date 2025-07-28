@@ -2,6 +2,9 @@ package com.xieyv.lighthome.web.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xieyv.lighthome.model.entity.AttrKey;
+import com.xieyv.lighthome.web.admin.vo.attr.AttrKeyVo;
+
+import java.util.List;
 
 
 /**
@@ -10,4 +13,5 @@ import com.xieyv.lighthome.model.entity.AttrKey;
  */
 public interface AttrKeyService extends IService<AttrKey> {
 
+    List<AttrKeyVo> listAttrInfo();
 }

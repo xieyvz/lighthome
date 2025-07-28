@@ -3,13 +3,14 @@ package com.xieyv.lighthome.web.admin.controller.lease;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xieyv.lighthome.common.result.Result;
 import com.xieyv.lighthome.model.enums.AppointmentStatus;
+import com.xieyv.lighthome.web.admin.custom.annocation.NotImplementedX;
 import com.xieyv.lighthome.web.admin.vo.appointment.AppointmentQueryVo;
 import com.xieyv.lighthome.web.admin.vo.appointment.AppointmentVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
-
+@NotImplementedX
 @Tag(name = "预约看房管理")
 @RequestMapping("/admin/appointment")
 @RestController

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xieyv.lighthome.common.result.Result;
 import com.xieyv.lighthome.model.entity.CommunityInfo;
 import com.xieyv.lighthome.model.enums.ReleaseStatus;
+import com.xieyv.lighthome.web.admin.custom.annocation.NotImplementedX;
 import com.xieyv.lighthome.web.admin.vo.community.CommunityDetailVo;
 import com.xieyv.lighthome.web.admin.vo.community.CommunityItemVo;
 import com.xieyv.lighthome.web.admin.vo.community.CommunityQueryVo;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@NotImplementedX
 @Tag(name = "社区信息管理")
 @RestController
 @RequestMapping("/admin/apartment")

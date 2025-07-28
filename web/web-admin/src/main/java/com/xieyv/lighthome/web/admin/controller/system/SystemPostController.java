@@ -4,13 +4,14 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xieyv.lighthome.common.result.Result;
 import com.xieyv.lighthome.model.entity.SystemPost;
 import com.xieyv.lighthome.model.enums.BaseStatus;
+import com.xieyv.lighthome.web.admin.custom.annocation.NotImplementedX;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@NotImplementedX
 @RestController
 @Tag(name = "后台用户岗位管理")
 @RequestMapping("/admin/system/post")

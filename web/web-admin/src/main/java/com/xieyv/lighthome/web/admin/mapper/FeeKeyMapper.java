@@ -2,6 +2,9 @@ package com.xieyv.lighthome.web.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xieyv.lighthome.model.entity.FeeKey;
+import com.xieyv.lighthome.web.admin.vo.fee.FeeKeyVo;
+
+import java.util.List;
 
 /**
 * @author xieyv
@@ -9,6 +12,7 @@ import com.xieyv.lighthome.model.entity.FeeKey;
 */
 public interface FeeKeyMapper extends BaseMapper<FeeKey> {
 
+    List<FeeKeyVo> listFeeInfo();
 }
 
 

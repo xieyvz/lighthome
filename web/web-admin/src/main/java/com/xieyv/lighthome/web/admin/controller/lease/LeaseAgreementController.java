@@ -4,13 +4,14 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xieyv.lighthome.common.result.Result;
 import com.xieyv.lighthome.model.entity.LeaseAgreement;
 import com.xieyv.lighthome.model.enums.LeaseStatus;
+import com.xieyv.lighthome.web.admin.custom.annocation.NotImplementedX;
 import com.xieyv.lighthome.web.admin.vo.agreement.AgreementQueryVo;
 import com.xieyv.lighthome.web.admin.vo.agreement.AgreementVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
-
+@NotImplementedX
 @Tag(name = "租约管理")
 @RestController
 @RequestMapping("/admin/agreement")
