@@ -19,7 +19,7 @@ public class CommunityFacility extends BaseEntity {
 
     @Schema(description = "社区id")
     @TableField(value = "community_id")
-    private Long community;
+    private Long communityId;
 
     @Schema(description = "设施id")
     @TableField(value = "facility_id")

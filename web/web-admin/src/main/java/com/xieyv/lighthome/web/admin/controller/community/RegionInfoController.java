@@ -5,7 +5,6 @@ import com.xieyv.lighthome.common.result.Result;
 import com.xieyv.lighthome.model.entity.CityInfo;
 import com.xieyv.lighthome.model.entity.DistrictInfo;
 import com.xieyv.lighthome.model.entity.ProvinceInfo;
-import com.xieyv.lighthome.web.admin.custom.annocation.NotTestedX;
 import com.xieyv.lighthome.web.admin.service.CityInfoService;
 import com.xieyv.lighthome.web.admin.service.DistrictInfoService;
 import com.xieyv.lighthome.web.admin.service.ProvinceInfoService;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@NotTestedX
 @Tag(name = "地区信息管理")
 @RestController
 @RequestMapping("/admin/region")

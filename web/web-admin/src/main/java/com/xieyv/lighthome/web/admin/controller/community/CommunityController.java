@@ -5,12 +5,17 @@ import com.xieyv.lighthome.common.result.Result;
 import com.xieyv.lighthome.model.entity.CommunityInfo;
 import com.xieyv.lighthome.model.enums.ReleaseStatus;
 import com.xieyv.lighthome.web.admin.custom.annocation.NotImplementedX;
+import com.xieyv.lighthome.web.admin.service.CommunityFacilityService;
+import com.xieyv.lighthome.web.admin.service.CommunityFeeValueService;
+import com.xieyv.lighthome.web.admin.service.CommunityInfoService;
+import com.xieyv.lighthome.web.admin.service.CommunityLabelService;
 import com.xieyv.lighthome.web.admin.vo.community.CommunityDetailVo;
 import com.xieyv.lighthome.web.admin.vo.community.CommunityItemVo;
 import com.xieyv.lighthome.web.admin.vo.community.CommunityQueryVo;
 import com.xieyv.lighthome.web.admin.vo.community.CommunitySubmitVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,9 +26,19 @@ import java.util.List;
 @RequestMapping("/admin/apartment")
 public class CommunityController {
 
+    @Autowired
+    CommunityFacilityService facilityService;
+    @Autowired
+    CommunityFeeValueService feeValueService;
+    @Autowired
+    CommunityInfoService InfoService;
+    @Autowired
+    CommunityLabelService labelService;
+
     @Operation(summary = "保存或更新社区信息")
     @PostMapping("saveOrUpdate")
-    public Result saveOrUpdate(@RequestBody CommunitySubmitVo communitySubmitVo) {
+    public Result<Void> saveOrUpdate(@RequestBody CommunitySubmitVo communitySubmitVo) {
+        InfoService.saveOrUpdateInfo(communitySubmitVo);
         return Result.ok();
     }
 
@@ -42,7 +57,7 @@ public class CommunityController {
 
     @Operation(summary = "根据id删除社区信息")
     @DeleteMapping("removeById")
-    public Result removeById(@RequestParam Long id) {
+    public Result<Void> removeById(@RequestParam Long id) {
         return Result.ok();
     }
 

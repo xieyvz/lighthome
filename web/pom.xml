@@ -34,12 +34,6 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!--包含spring web相关依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
         <!--包含spring test相关依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

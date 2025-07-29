@@ -2,6 +2,7 @@ package com.xieyv.lighthome.web.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xieyv.lighthome.model.entity.CommunityInfo;
+import com.xieyv.lighthome.web.admin.vo.community.CommunitySubmitVo;
 
 /**
  * @author xieyv
@@ -9,4 +10,5 @@ import com.xieyv.lighthome.model.entity.CommunityInfo;
  */
 public interface CommunityInfoService extends IService<CommunityInfo> {
 
+    void saveOrUpdateInfo(CommunitySubmitVo communitySubmitVo);
 }
