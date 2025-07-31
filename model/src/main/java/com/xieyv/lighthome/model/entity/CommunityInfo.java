@@ -9,7 +9,7 @@ import lombok.Data;
 import java.io.Serial;
 
 @Schema(description = "社区信息表")
-@TableName(value = "apartment_info")
+@TableName(value = "community_info")
 @Data
 public class CommunityInfo extends BaseEntity {
 

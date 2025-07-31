@@ -3,5 +3,72 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xieyv.lighthome.web.admin.mapper.CommunityInfoMapper">
-
+    <!-- queryVo -->
+    <!--
+        community_info   - ci
+        totalRoomCount   - tc
+        notFreeRoomCount - nc
+    -->
+    <select id="listByQueryVo" resultType="com.xieyv.lighthome.web.admin.vo.community.CommunityItemVo">
+        select
+            ci.id,
+            ci.name,
+            ci.introduction,
+            ci.district_id as districtId,
+            ci.city_id as cityId,
+            ci.city_name as cityName,
+            ci.province_id as provinceId,
+            ci.province_name as provinceName,
+            ci.address_detail as addressDetail,
+            ci.latitude,
+            ci.longitude,
+            ci.phone,
+            ci.is_release as isRelease,
+            ifnull(tc.total_room_count, 0) as totalRoomCount,
+            ifnull(tc.total_room_count, 0) - ifnull(nc.not_free_room_count, 0) as freeRoomCount
+        from
+        (
+            select id,
+            name,
+            introduction,
+            district_id,
+            city_id,
+            city_name,
+            province_id,
+            province_name,
+            address_detail,
+            latitude,
+            longitude,
+            phone,
+            is_release
+            from community_info
+            <where>
+                is_deleted=0
+                <if test="queryVo.provinceId != null">
+                    and province_id=#{queryVo.provinceId}
+                </if>
+                <if test="queryVo.cityId != null">
+                    and city_id=#{queryVo.cityId}
+                </if>
+                <if test="queryVo.districtId != null">
+                    and district_id=#{queryVo.districtId}
+                </if>
+            </where>
+        )ci left join
+        (
+            select community_id, count(*) as total_room_count
+            from room_info
+            where is_deleted=0 and is_release=1
+            group by community_id
+        )tc
+        on ci.id=tc.community_id
+        left join
+        (
+            select community_id, count(*) as not_free_room_count
+            from lease_agreement
+            where is_deleted=0
+            and status in(2, 5) group by community_id
+        )nc
+        on ci.id=nc.community_id
+    </select>
 </mapper>

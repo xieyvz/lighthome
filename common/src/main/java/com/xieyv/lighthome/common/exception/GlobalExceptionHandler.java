@@ -22,4 +22,14 @@ public class GlobalExceptionHandler {
         log.info(exception.getMessage());
         return Result.fail();
     }
+
+
+    @ExceptionHandler(LhException.class)
+    @ResponseBody
+    public Result<?> handleException(LhException lhexception) {
+        log.info(lhexception.getMessage());
+        Integer code = lhexception.getCode();
+        String message = lhexception.getMessage();
+        return Result.fail(code, message);
+    }
 }

@@ -18,7 +18,7 @@ public class RoomItemVo extends RoomInfo {
     @Schema(description = "当前入住状态")
     private Boolean isCheckIn;
 
-    @Schema(description = "所属公寓信息")
-    private CommunityInfo apartmentInfo;
+    @Schema(description = "所属社区信息")
+    private CommunityInfo communityInfo;
 
 }

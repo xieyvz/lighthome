@@ -31,14 +31,14 @@ public class FacilityController {
 
     @Operation(summary = "新增或修改配套信息")
     @PostMapping("saveOrUpdate")
-    public Result saveOrUpdate(@RequestBody FacilityInfo facilityInfo) {
+    public Result<Void> saveOrUpdate(@RequestBody FacilityInfo facilityInfo) {
         facilityInfoService.saveOrUpdate(facilityInfo);
         return Result.ok();
     }
 
     @Operation(summary = "根据id删除配套信息")
     @DeleteMapping("deleteById")
-    public Result removeFacilityById(@RequestParam Long id) {
+    public Result<Void> removeFacilityById(@RequestParam Long id) {
         facilityInfoService.removeById(id);
         return Result.ok();
     }

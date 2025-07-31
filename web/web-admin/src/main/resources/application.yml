@@ -24,3 +24,6 @@ minio:
   access-key: minioadmin
   secret-key: minioadmin
   bucket-name: lighthome
+
+springdoc:
+  default-flat-param-object: true

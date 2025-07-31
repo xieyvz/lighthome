@@ -27,14 +27,14 @@ public class PaymentTypeController {
 
     @Operation(summary = "保存或更新支付方式")
     @PostMapping("saveOrUpdate")
-    public Result saveOrUpdatePaymentType(@RequestBody PaymentType paymentType) {
+    public Result<Void> saveOrUpdatePaymentType(@RequestBody PaymentType paymentType) {
         paymentTypeService.saveOrUpdate(paymentType);
         return Result.ok();
     }
 
     @Operation(summary = "根据ID删除支付方式")
     @DeleteMapping("deleteById")
-    public Result deletePaymentById(@RequestParam Long id) {
+    public Result<Void> deletePaymentById(@RequestParam Long id) {
         paymentTypeService.removeById(id);  //配置过逻辑删除，实则为update
         return Result.ok();
     }

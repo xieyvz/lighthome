@@ -2,6 +2,7 @@ package com.xieyv.lighthome.web.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xieyv.lighthome.model.entity.AttrValue;
+import com.xieyv.lighthome.web.admin.vo.attr.AttrValueVo;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
 */
 public interface AttrValueMapper extends BaseMapper<AttrValue> {
 
+    List<AttrValueVo> selectByIdRoomId(Long id);
 }
 
 
