@@ -4,4 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xieyv.lighthome.web.admin.mapper.SystemPostMapper">
 
+    <select id="listPage" resultType="com.xieyv.lighthome.model.entity.SystemPost">
+        select id,
+               code as post_code,
+               name,
+               description,
+               status
+            from system_post
+        where is_deleted=0
+    </select>
 </mapper>

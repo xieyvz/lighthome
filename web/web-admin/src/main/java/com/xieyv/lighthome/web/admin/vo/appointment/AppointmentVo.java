@@ -10,6 +10,6 @@ import lombok.Data;
 public class AppointmentVo extends ViewAppointment {
 
     @Schema(description = "预约社区信息")
-    private CommunityInfo apartmentInfo;
+    private CommunityInfo communityInfo;
 
 }

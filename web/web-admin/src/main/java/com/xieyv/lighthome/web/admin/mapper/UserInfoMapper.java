@@ -1,7 +1,10 @@
 package com.xieyv.lighthome.web.admin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xieyv.lighthome.model.entity.UserInfo;
+import com.xieyv.lighthome.web.admin.vo.user.UserInfoQueryVo;
 
 /**
 * @author xieyv
@@ -9,6 +12,7 @@ import com.xieyv.lighthome.model.entity.UserInfo;
 */
 public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
+    IPage<UserInfo> listByUserInfoQueryVo(Page<UserInfo> page, UserInfoQueryVo queryVo);
 }
 
 

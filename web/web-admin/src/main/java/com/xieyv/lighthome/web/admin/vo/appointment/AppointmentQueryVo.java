@@ -18,7 +18,7 @@ public class AppointmentQueryVo {
     private Long districtId;
 
     @Schema(description="预约社区所在社区")
-    private Long apartmentId;
+    private Long communityId;
 
     @Schema(description="预约用户姓名")
     private String name;

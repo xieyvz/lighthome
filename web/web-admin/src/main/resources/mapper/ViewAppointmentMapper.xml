@@ -4,4 +4,61 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xieyv.lighthome.web.admin.mapper.ViewAppointmentMapper">
 
+    <resultMap id="AppointmentVoMap" type="com.xieyv.lighthome.web.admin.vo.appointment.AppointmentVo" autoMapping="true">
+       <id property="id" column="id"/>
+       <association property="communityInfo" javaType="com.xieyv.lighthome.model.entity.CommunityInfo" autoMapping="true">
+           <id property="id" column="ci_id"/>
+           <result property="name" column="ci_name"/>
+           <result property="phone" column="ci_phone"/>
+       </association>
+    </resultMap>
+
+    <select id="selectByQueryVo" resultMap="AppointmentVoMap">
+        select va.id,
+               va.user_id,
+               va.name,
+               va.phone,
+               va.community_id,
+               va.appointment_time,
+               va.additional_info,
+               va.appointment_status,
+               ci.id as  ci_id,
+               ci.name as ci_name,
+               ci.introduction,
+               ci.district_id,
+               ci.district_name,
+               ci.city_id,
+               ci.city_name,
+               ci.province_id,
+               ci.province_name,
+               ci.address_detail,
+               ci.latitude,
+               ci.longitude,
+               ci.phone as ci_phone,
+               ci.is_release
+        from view_appointment as va
+                 left join community_info as ci
+                           on va.community_id=ci.id and ci.is_deleted=0
+        <where>
+            and va.is_deleted=0
+            <if test="queryVo.provinceId != null">
+                and ci.province_id=#{queryVo.provinceId}
+            </if>
+            <if test="queryVo.cityId != null">
+                and ci.city_id=#{queryVo.cityId}
+            </if>
+            <if test="queryVo.districtId != null">
+                and ci.district_id=#{queryVo.districtId}
+            </if>
+            <if test="queryVo.communityId != null">
+                and va.community_id=#{queryVo.communityId}
+            </if>
+            <if test="queryVo.name != null and queryVo.name != ''">
+                and va.name like concat("%",#{queryVo.name},"%")
+            </if>
+            <if test="queryVo.phone != null and queryVo.phone != ''">
+                and va.phone like concat("%",#{queryVo.phone},"%")
+            </if>
+        </where>
+    </select>
 </mapper>

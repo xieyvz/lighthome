@@ -4,4 +4,102 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xieyv.lighthome.web.admin.mapper.LeaseAgreementMapper">
 
+    <resultMap id="AgreementVoListMap" type="com.xieyv.lighthome.web.admin.vo.agreement.AgreementVo" autoMapping="true">
+        <id column="id" property="id"/>
+        <association property="communityInfo" javaType="com.xieyv.lighthome.model.entity.CommunityInfo" autoMapping="true">
+            <id property="id" column="ci_id"/>
+            <result property="name" column="ci_name"/>
+            <result property="phone" column="ci_phone"/>
+        </association>
+        <association property="paymentType" javaType="com.xieyv.lighthome.model.entity.PaymentType" autoMapping="true">
+            <id property="id" column="pt_id"/>
+            <result property="name" column="pt_name"/>
+            <result property="additionalInfo" column="pt_additional_info"/>
+        </association>
+        <association property="leaseTerm" javaType="com.xieyv.lighthome.model.entity.LeaseTerm" autoMapping="true">
+            <id property="id" column="lt_id"/>
+        </association>
+        <association property="roomInfo" javaType="com.xieyv.lighthome.model.entity.RoomInfo" autoMapping="true">
+            <id property="id" column="ri_id"/>
+            <result property="rent" column="ri_rent"/>
+            <result property="communityId" column="ri_community_id"/>
+            <result property="isRelease" column="ri_is_release"/>
+        </association>
+    </resultMap>
+    <select id="selectListByAgreementQueryVo" resultMap="AgreementVoListMap">
+        select la.id,
+               la.phone,
+               la.name,
+               la.identification_number,
+               la.community_id,
+               la.room_id,
+               la.lease_start_date,
+               la.lease_end_date,
+               la.lease_term_id,
+               la.rent,
+               la.deposit,
+               la.payment_type_id,
+               la.status,
+               la.source_type,
+               la.additional_info,
+               ci.id              as ci_id,
+               ci.name            as ci_name,
+               ci.introduction,
+               ci.district_id,
+               ci.district_name,
+               ci.city_id,
+               ci.city_name,
+               ci.province_id,
+               ci.province_name,
+               ci.address_detail,
+               ci.latitude,
+               ci.longitude,
+               ci.phone           as ci_phone,
+               ci.is_release,
+               pt.id              as pt_id,
+               pt.name            as pt_name,
+               pt.pay_month_count,
+               pt.additional_info as pt_additional_info,
+               lt.id              as lt_id,
+               lt.month_count,
+               lt.unit,
+               ri.id              as ri_id,
+               ri.room_number,
+               ri.rent            as ri_rent,
+               ri.community_id    as ri_community_id,
+               ri.is_release      as ri_is_release
+        from lease_agreement la
+                 left join community_info ci
+                           on la.community_id = ci.id and ci.is_deleted = 0
+                 left join payment_type pt
+                           on la.payment_type_id = pt.id and pt.is_deleted = 0
+                 left join lease_term lt
+                           on la.lease_term_id = lt.id and lt.is_deleted = 0
+                 left join room_info ri
+                           on la.room_id = ri.id and ri.is_deleted = 0
+        <where>
+            and la.is_deleted=0
+            <if test="queryVo.provinceId != null">
+                and ci.province_id=#{queryVo.provinceId}
+            </if>
+            <if test="queryVo.cityId != null">
+                and ci.city_id=#{queryVo.cityId}
+            </if>
+            <if test="queryVo.districtId != null">
+                and ci.district_id=#{queryVo.districtId}
+            </if>
+            <if test="queryVo.communityId != null">
+                and la.community_id=#{queryVo.communityId}
+            </if>
+            <if test="queryVo.roomNumber != null and queryVo.roomNumber !=''">
+                and ri.room_number like concat("%",#{queryVo.roomNumber},"%")
+            </if>
+            <if test="queryVo.name != null and queryVo.name != ''">
+                and la.name like concat("%",#{queryVo.name},"%")
+            </if>
+            <if test="queryVo.phone != null and queryVo.phone !=''">
+                and la.phone like concat("%",#{queryVo.phone},"%")
+            </if>
+        </where>
+    </select>
 </mapper>

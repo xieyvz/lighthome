@@ -1,6 +1,5 @@
 package com.xieyv.lighthome.web.admin.controller.community;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.xieyv.lighthome.common.result.Result;
 import com.xieyv.lighthome.model.entity.PaymentType;
 import com.xieyv.lighthome.web.admin.service.PaymentTypeService;

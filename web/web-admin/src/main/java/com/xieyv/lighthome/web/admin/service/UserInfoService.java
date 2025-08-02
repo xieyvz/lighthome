@@ -1,7 +1,10 @@
 package com.xieyv.lighthome.web.admin.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xieyv.lighthome.model.entity.UserInfo;
+import com.xieyv.lighthome.web.admin.vo.user.UserInfoQueryVo;
 
 /**
  * @author xieyv
@@ -9,4 +12,5 @@ import com.xieyv.lighthome.model.entity.UserInfo;
  */
 public interface UserInfoService extends IService<UserInfo> {
 
+    IPage<UserInfo> listByUserInfoQueryVo(Page<UserInfo> page, UserInfoQueryVo queryVo);
 }

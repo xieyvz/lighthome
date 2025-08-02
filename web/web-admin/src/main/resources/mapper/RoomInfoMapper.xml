@@ -79,7 +79,4 @@
             </if>
         </where>
     </select>
-    <select id="getDetailById" resultType="com.xieyv.lighthome.web.admin.vo.room.RoomDetailVo">
-        select * from
-    </select>
 </mapper>

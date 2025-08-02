@@ -33,8 +33,8 @@ public class LeaseAgreement extends BaseEntity {
     private String identificationNumber;
 
     @Schema(description = "签约社区id")
-    @TableField(value = "apartment_id")
-    private Long apartmentId;
+    @TableField(value = "community_id")
+    private Long communityId;
 
     @Schema(description = "签约房间id")
     @TableField(value = "room_id")
