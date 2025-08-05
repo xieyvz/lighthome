@@ -32,17 +32,17 @@ import java.util.List;
 public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
         implements RoomInfoService {
     @Autowired
-    GraphInfoService graphInfoService;
+    private GraphInfoService graphInfoService;
     @Autowired
-    RoomAttrValueService attrValueService;
+    private RoomAttrValueService attrValueService;
     @Autowired
-    RoomFacilityService facilityService;
+    private RoomFacilityService facilityService;
     @Autowired
-    RoomLabelService labelService;
+    private RoomLabelService labelService;
     @Autowired
-    RoomPaymentTypeService paymentTypeService;
+    private RoomPaymentTypeService paymentTypeService;
     @Autowired
-    RoomLeaseTermService leaseTermService;
+    private RoomLeaseTermService leaseTermService;
 
     @Autowired
     RoomInfoMapper roomInfoMapper;

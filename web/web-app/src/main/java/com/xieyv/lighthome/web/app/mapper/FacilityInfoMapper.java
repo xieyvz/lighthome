@@ -10,6 +10,9 @@ import java.util.List;
 */
 public interface FacilityInfoMapper extends BaseMapper<FacilityInfo> {
 
+    List<FacilityInfo> selectListByCommunityId(Long id);
+
+    List<FacilityInfo> selectListByRoomId(Long id);
 }
 
 

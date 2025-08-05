@@ -24,11 +24,11 @@ import java.util.List;
 public class RegionInfoController {
 
     @Autowired
-    ProvinceInfoService provinceInfoService;
+    private ProvinceInfoService provinceInfoService;
     @Autowired
-    CityInfoService cityInfoService;
+    private CityInfoService cityInfoService;
     @Autowired
-    DistrictInfoService districtInfoService;
+    private DistrictInfoService districtInfoService;
 
     @Operation(summary = "查询省份信息列表")
     @GetMapping("province/list")

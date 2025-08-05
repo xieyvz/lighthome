@@ -18,7 +18,7 @@ public class FeeKeyServiceImpl extends ServiceImpl<FeeKeyMapper, FeeKey>
     implements FeeKeyService {
 
     @Autowired
-    FeeKeyMapper feeKeyMapper;
+    private FeeKeyMapper feeKeyMapper;
 
     @Override
     public List<FeeKeyVo> listFeeInfo() {

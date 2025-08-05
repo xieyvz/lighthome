@@ -16,7 +16,7 @@ import java.util.List;
 public class LeaseTermController {
 
     @Autowired
-    LeaseTermService leaseTermService;
+    private LeaseTermService leaseTermService;
 
     @GetMapping("list")
     @Operation(summary = "查询全部租期列表")

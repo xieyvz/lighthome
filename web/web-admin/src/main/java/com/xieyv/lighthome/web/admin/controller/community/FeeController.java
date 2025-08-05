@@ -20,9 +20,9 @@ import java.util.List;
 public class FeeController {
 
     @Autowired
-    FeeKeyService feeKeyService;
+    private FeeKeyService feeKeyService;
     @Autowired
-    FeeValueService feeValueService;
+    private FeeValueService feeValueService;
 
     @Operation(summary = "保存或更新杂费名称")
     @PostMapping("key/saveOrUpdate")

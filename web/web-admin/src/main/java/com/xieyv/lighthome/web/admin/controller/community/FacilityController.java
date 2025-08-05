@@ -18,7 +18,7 @@ import java.util.List;
 public class FacilityController {
 
     @Autowired
-    FacilityInfoService facilityInfoService;
+    private FacilityInfoService facilityInfoService;
 
     @Operation(summary = "[根据类型]查询配套信息列表")
     @GetMapping("list")

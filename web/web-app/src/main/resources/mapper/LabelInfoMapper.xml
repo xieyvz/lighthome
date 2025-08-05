@@ -4,4 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xieyv.lighthome.web.app.mapper.LabelInfoMapper">
 
+    <select id="selectListByCommunityId" resultType="com.xieyv.lighthome.model.entity.LabelInfo">
+        select id,
+               type,
+               name
+        from label_info
+        where is_deleted=0
+          and id in (select label_id
+                     from community_label
+                     where is_deleted=0
+                       and community_id=#{id})
+    </select>
+    <select id="selectListByRoomId" resultType="com.xieyv.lighthome.model.entity.LabelInfo">
+        select id,
+               type,
+               name
+        from label_info
+        where is_deleted=0
+          and id in (select label_id
+                     from room_label
+                     where is_deleted=0
+                        and room_id=#{id})
+    </select>
 </mapper>

@@ -18,7 +18,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo>
     implements UserInfoService {
 
     @Autowired
-    UserInfoMapper userInfoMapper;
+    private UserInfoMapper userInfoMapper;
 
     @Override
     public IPage<UserInfo> listByUserInfoQueryVo(Page<UserInfo> page, UserInfoQueryVo queryVo) {

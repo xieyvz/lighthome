@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Data
-@Schema(description = "APP端公寓信息详情")
+@Schema(description = "APP端社区信息详情")
 public class CommunityDetailVo extends CommunityInfo {
 
     @Schema(description = "图片列表")

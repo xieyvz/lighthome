@@ -4,4 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xieyv.lighthome.web.app.mapper.FeeValueMapper">
 
+    <select id="selectListVoByRoomId" resultType="com.xieyv.lighthome.web.app.vo.fee.FeeValueVo">
+        select v.id,
+               v.name,
+               v.unit,
+               v.fee_key_id,
+               k.name as fee_key_name
+        from fee_key as k
+                 left join fee_value as v
+                           on k.id=v.fee_key_id and v.is_deleted=0
+        where k.is_deleted=0
+          and v.id in (select fee_value_id
+                       from community_fee_value
+                       where community_id=#{id})
+    </select>
 </mapper>

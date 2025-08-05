@@ -20,15 +20,15 @@ public class LeaseAgreementServiceImpl extends ServiceImpl<LeaseAgreementMapper,
         implements LeaseAgreementService {
 
     @Autowired
-    LeaseAgreementMapper leaseAgreementMapper;
+    private LeaseAgreementMapper leaseAgreementMapper;
     @Autowired
-    CommunityInfoMapper communityInfoMapper;
+    private CommunityInfoMapper communityInfoMapper;
     @Autowired
-    RoomInfoMapper roomInfoMapper;
+    private RoomInfoMapper roomInfoMapper;
     @Autowired
-    PaymentTypeMapper paymentTypeMapper;
+    private PaymentTypeMapper paymentTypeMapper;
     @Autowired
-    LeaseTermMapper leaseTermMapper;
+    private LeaseTermMapper leaseTermMapper;
 
     @Override
     public AgreementVo getAgreementVoById(Long id) {

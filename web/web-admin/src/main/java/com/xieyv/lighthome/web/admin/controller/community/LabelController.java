@@ -18,7 +18,7 @@ import java.util.List;
 public class LabelController {
 
     @Autowired
-    LabelInfoService labelInfoService;
+    private LabelInfoService labelInfoService;
 
     @Operation(summary = "（根据类型）查询标签列表")
     @GetMapping("list")

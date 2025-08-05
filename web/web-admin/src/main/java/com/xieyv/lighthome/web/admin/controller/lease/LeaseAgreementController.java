@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/admin/agreement")
 public class   LeaseAgreementController {
     @Autowired
-    LeaseAgreementService leaseAgreementService;
+    private LeaseAgreementService leaseAgreementService;
 
     @Operation(summary = "保存或修改租约信息")
     @PostMapping("saveOrUpdate")

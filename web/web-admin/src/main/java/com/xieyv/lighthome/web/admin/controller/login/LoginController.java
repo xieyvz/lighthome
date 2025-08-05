@@ -2,14 +2,11 @@ package com.xieyv.lighthome.web.admin.controller.login;
 
 import com.xieyv.lighthome.common.login.LoginUserHolder;
 import com.xieyv.lighthome.common.result.Result;
-import com.xieyv.lighthome.common.util.JwtUtil;
-import com.xieyv.lighthome.model.entity.SystemUser;
 import com.xieyv.lighthome.web.admin.custom.annocation.NotImplementedX;
 import com.xieyv.lighthome.web.admin.service.LoginService;
 import com.xieyv.lighthome.web.admin.vo.login.CaptchaVo;
 import com.xieyv.lighthome.web.admin.vo.login.LoginVo;
 import com.xieyv.lighthome.web.admin.vo.system.user.SystemUserInfoVo;
-import io.jsonwebtoken.Claims;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/admin")
 public class LoginController {
     @Autowired
-    LoginService loginService;
+    private LoginService loginService;
 
     @Operation(summary = "获取图形验证码")
     @GetMapping("login/captcha")

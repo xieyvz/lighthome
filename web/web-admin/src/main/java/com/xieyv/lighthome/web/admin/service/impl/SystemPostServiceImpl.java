@@ -17,7 +17,7 @@ public class SystemPostServiceImpl extends ServiceImpl<SystemPostMapper, SystemP
     implements SystemPostService {
 
     @Autowired
-    SystemPostMapper systemPostMapper;
+    private SystemPostMapper systemPostMapper;
 
     @Override
     public IPage<SystemPost> listPage(Page<SystemPost> page) {

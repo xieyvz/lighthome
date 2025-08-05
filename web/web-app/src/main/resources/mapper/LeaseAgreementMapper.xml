@@ -4,4 +4,54 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xieyv.lighthome.web.app.mapper.LeaseAgreementMapper">
 
+    <select id="listItem" resultType="com.xieyv.lighthome.web.app.vo.agreement.AgreementItemVo">
+        select la.id,
+               ci.name as community_name,
+               concat(ri.room_number,',',la.room_id) as room_number,
+               la.`status` as leaseStatus,
+               la.lease_start_date,
+               la.lease_end_date,
+               la.source_type,
+               la.rent
+        from lease_agreement as la
+                 left join room_info as ri
+                           on la.room_id=ri.id and ri.is_deleted=0
+                 left join community_info as ci
+                           on la.community_id=ci.id and ci.is_deleted=0
+        where la.is_deleted=0
+    </select>
+
+    <select id="getDetailById" resultType="com.xieyv.lighthome.web.app.vo.agreement.AgreementDetailVo">
+        select la.id,
+               la.phone,
+               la.name,
+               la.identification_number,
+               la.community_id,
+               la.room_id,
+               la.lease_start_date,
+               la.lease_end_date,
+               la.lease_term_id,
+               la.rent,
+               la.deposit,
+               la.payment_type_id,
+               la.`status`,
+               la.source_type,
+               la.additional_info,
+               ci.name as community_name,
+               ri.room_number,
+               pt.`name` as payment_type_name,
+               lt.month_count as lease_term_month_count,
+               lt.unit as lease_term_unit
+        from lease_agreement as la
+                 left join community_info as ci
+                           on la.community_id=ci.id and ci.is_deleted=0
+                 left join room_info as ri
+                           on la.room_id=ri.id and ri.is_deleted=0
+                 left join payment_type pt
+                           on la.payment_type_id=pt.id and pt.is_deleted=0
+                 left join lease_term as lt
+                           on la.lease_term_id=lt.id
+        where la.is_deleted=0
+
+    </select>
 </mapper>

@@ -2,6 +2,7 @@ package com.xieyv.lighthome.web.app.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xieyv.lighthome.model.entity.ViewAppointment;
+import com.xieyv.lighthome.web.app.vo.appointment.AppointmentItemVo;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
 */
 public interface ViewAppointmentMapper extends BaseMapper<ViewAppointment> {
 
+    List<ViewAppointment> selectListItem();
 }
 
 

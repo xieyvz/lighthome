@@ -42,7 +42,7 @@ public class LoginServiceImpl implements LoginService {
         String verCode = specCaptcha.text().toLowerCase();
         String key = RedisConstant.ADMIN_LOGIN_PREFIX   + UUID.randomUUID();
         stringRedisTemplate.opsForValue().set(key, verCode,
-                RedisConstant.ADMIN_LOGIN_CAPTCHA_TTL_SEC * 10, TimeUnit.SECONDS);
+                RedisConstant.ADMIN_LOGIN_CAPTCHA_TTL_SEC, TimeUnit.SECONDS);
 
         return new CaptchaVo(specCaptcha.toBase64(), key);
     }
