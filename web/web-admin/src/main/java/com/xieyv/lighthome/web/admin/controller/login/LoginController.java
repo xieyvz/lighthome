@@ -2,7 +2,6 @@ package com.xieyv.lighthome.web.admin.controller.login;
 
 import com.xieyv.lighthome.common.login.LoginUserHolder;
 import com.xieyv.lighthome.common.result.Result;
-import com.xieyv.lighthome.web.admin.custom.annocation.NotImplementedX;
 import com.xieyv.lighthome.web.admin.service.LoginService;
 import com.xieyv.lighthome.web.admin.vo.login.CaptchaVo;
 import com.xieyv.lighthome.web.admin.vo.login.LoginVo;
@@ -12,7 +11,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@NotImplementedX
 @Tag(name = "后台管理系统登录管理")
 @RestController
 @RequestMapping("/admin")
