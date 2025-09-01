@@ -38,6 +38,6 @@ springdoc:
 
 aliyun:
   sms:
-    accessKey-key-id: LTAI5tH831ocSJ2TkxamN1TJ
-    accessKey-key-secret: kFhKyuHlim0SVRTPF4xanJSSIsggRt
+    accessKey-key-id: ${Your_Aliyun_KeyId}
+    accessKey-key-secret: ${Your_Aliyun_KeySecret}
     endpoint: dysmsapi.aliyuncs.com
